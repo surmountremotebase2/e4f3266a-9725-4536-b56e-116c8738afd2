@@ -5,7 +5,7 @@ class TradingStrategy(Strategy):
 
     @property
     def assets(self):
-        return ["SPY"]
+        return ["VTI"]
 
     @property
     def interval(self):
@@ -14,9 +14,9 @@ class TradingStrategy(Strategy):
     def run(self, data_functions):
         data = data_functions["ohlcv"]
 
-        spy_20_ma = SMA("SPY", data, 20)
-        spy_10_ma = SMA("SPY", data, 10)
-        spy_10_rsi = RSI("SPY", data, 10)
+        spy_20_ma = SMA("VTI", data, 20)
+        spy_10_ma = SMA("VTI", data, 10)
+        spy_10_rsi = RSI("VTI", data, 10)
 
         if None in [spy_20_ma, spy_10_ma, spy_10_rsi]:
             return None
